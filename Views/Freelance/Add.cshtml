@@ -1,0 +1,83 @@
+﻿@model Creativa.ModelView.FreeLanceModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <meta charset="utf-8">
+    <title>FreeLnace</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <link href="~/Assets/ContentOrganizations/img/favicon.png" rel="icon">
+    <link href="~/Assets/ContentOrganizations/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700|Open+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
+    <link href="~/Assets/ContentOrganizations/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Assets/ContentOrganizations/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Assets/ContentOrganizations/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="~/Assets/ContentOrganizations/lib/aos/aos.css" rel="stylesheet">
+    <link href="~/Assets/ContentOrganizations/lib/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="~/Assets/ContentOrganizations/css/style.css" rel="stylesheet">
+    <title>Create</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <img style="height:90px;width:200px" src="http://creativa.gov.eg/wp-content/uploads/2020/12/CREATIVA-LOGO2.png" alt="logo.png">
+    </nav>
+    <hr />
+    <h4 style="color:blue;padding:20px;"> Reverse FreeLnace</h4>
+    <div style="margin-left:30%; ">
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Add">
+                    @*<div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" style="width:500px" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>*@
+                    <div class="form-group">
+                        <label asp-for="LinkProfile" class="control-label"></label>
+                        <input asp-for="LinkProfile" style="width:500px" class="form-control" />
+                        <span asp-validation-for="LinkProfile" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="personality_ID" class="control-label"></label>
+                        <input asp-for="personality_ID" style="width:500px" class="form-control" />
+                        <span asp-validation-for="personality_ID" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Tech_used" class="control-label"></label>
+                        <input asp-for="Tech_used" style="width:500px" class="form-control" />
+                        <span asp-validation-for="Tech_used" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Type_project" class="control-label"></label>
+                        <input asp-for="Type_project" style="width:500px" class="form-control" />
+                        <span asp-validation-for="Type_project" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="duration" class="control-label"></label>
+                        <input asp-for="duration" style="width:500px" class="form-control" />
+                        <span asp-validation-for="duration" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="Name" class="control-label col-md-2">Branches</label>
+                        <div class="col-md-6">
+                            @Html.DropDownList("Name", (SelectList)ViewBag.Branche, htmlAttributes: new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px;" class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

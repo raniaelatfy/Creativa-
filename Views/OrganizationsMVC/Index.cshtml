@@ -1,0 +1,120 @@
+﻿@model IEnumerable<Creativa.Models.Organization>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+
+@{
+    Layout = null;
+
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Organizations</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicons -->
+    <link href="~/Assets/ContentOrganizations/img/favicon.png" rel="icon">
+    <link href="~/Assets/ContentOrganizations/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700|Open+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link href="~/Assets/ContentOrganizations/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Libraries CSS Files -->
+    <link href="~/Assets/ContentOrganizations/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Assets/ContentOrganizations/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="~/Assets/ContentOrganizations/lib/aos/aos.css" rel="stylesheet">
+    <link href="~/Assets/ContentOrganizations/lib/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+
+    <!-- Main Stylesheet File -->
+    <link href="~/Assets/ContentOrganizations/css/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+      Theme Name: Avilon
+      Theme URL: https://bootstrapmade.com/avilon-bootstrap-landing-page-template/
+      Author: BootstrapMade.com
+      License: https://bootstrapmade.com/license/
+    ======================================================= -->
+</head>
+
+<body>
+
+
+
+    <!--==========================
+      Product Advanced Featuress Section
+        /*organizations */
+    ============================-->
+    <section id="advanced-features">
+
+        <div class="features-row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <img class="advanced-feature-img-left" style="width:555px;height:371px" src="http://creativa.gov.eg/wp-content/uploads/2020/12/CREATIVA-LOGO2.png" alt="">
+                        <div data-aos="fade-left">
+                            <h2>Creativa</h2>
+                            <a asp-controller="EventMVC" asp-action="Index" asp-route-id="3"><h2>Creativa</h2></a>
+                            <i class="ion-ios-paper-outline" data-aos="fade-left"></i>
+                            <p data-aos="fade-left">rud exercitation ullamco laboris nisi ut aliquip ex </p>
+                            <br /><i class="ion-ios-color-filter-outline" data-aos="fade-left" data-aos-delay="200"></i>
+                            <p data-aos="fade-left" data-aos-delay="200">Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
+                            <br /><i class="ion-ios-barcode-outline" data-aos="fade-left" data-aos-delay="400"></i>
+                            <p data-aos="fade-left" data-aos-delay="400">Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @foreach (var item in Model)
+        {
+            <div class="features-row">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <img class="advanced-feature-img-left" src="~/Assets/ContentOrganizations/img/advanced-feature-2.jpg" alt="">
+                            <div data-aos="fade-left">
+                                <a asp-controller="EventMVC" asp-action="Index" asp-route-id=@Html.DisplayFor(modelItem => item.Id)><h2>@Html.DisplayFor(modelItem => item.Name)</h2></a>
+                                <i class="ion-ios-paper-outline" data-aos="fade-left"></i>
+                                <p data-aos="fade-left">@Html.DisplayFor(modelItem => item.Name)</p>
+                                <br /><i class="ion-ios-color-filter-outline" data-aos="fade-left" data-aos-delay="200"></i>
+                                <p data-aos="fade-left" data-aos-delay="200">Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
+                                <br /><i class="ion-ios-barcode-outline" data-aos="fade-left" data-aos-delay="400"></i>
+                                <p data-aos="fade-left" data-aos-delay="400">Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </section><!-- #advanced-features -->
+
+
+
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="~/Assets/ContentOrganizations/lib/jquery/jquery.min.js"></script>
+    <script src="~/Assets/ContentOrganizations/lib/jquery/jquery-migrate.min.js"></script>
+    <script src="~/Assets/ContentOrganizations/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Assets/ContentOrganizations/lib/easing/easing.min.js"></script>
+    <script src="~/Assets/ContentOrganizations/lib/aos/aos.js"></script>
+    <script src="~/Assets/ContentOrganizations/lib/superfish/hoverIntent.js"></script>
+    <script src="~/Assets/ContentOrganizations/lib/superfish/superfish.min.js"></script>
+    <script src="~/Assets/ContentOrganizations/lib/magnific-popup/magnific-popup.min.js"></script>
+
+    <!-- Contact Form JavaScript File -->
+    <script src="~/Assets/ContentOrganizations/contactform/contactform.js"></script>
+
+    <!-- Template Main Javascript File -->
+    <script src="~/Assets/ContentOrganizations/js/main.js"></script>
+
+</body>
+</html>

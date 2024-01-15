@@ -1,0 +1,576 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+@model List<Creativa.ModelView.EventModel>
+ 
+@{
+    ViewBag.Title = "Home Page";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Creativa Home Page</title>
+
+    <link rel="icon" href="~/Assets/HomeContent/img/icon.jpg">
+    <!-- Place favicon.ico in the root directory -->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/Content/css/">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="~/Assets/HomeContent/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Assets/HomeContent/css/slicknav.min.css">
+    <link rel="stylesheet" href="~/Assets/HomeContent/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="~/Assets/HomeContent/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Assets/HomeContent/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Assets/HomeContent/css/animate.min.css">
+    <link rel="stylesheet" href="~/Assets/HomeContent/css/animate-text.css">
+    <link rel="stylesheet" href="~/Assets/HomeContent/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/Assets/HomeContent/css/font-awesome.min.css" />
+
+    <!-- Ruby CSS -->
+    <link rel="stylesheet" href="~/Assets/HomeContent/css/normalize.css">
+    <link rel="stylesheet" href="~/Assets/HomeContent/style.css">
+    <link rel="stylesheet" href="~/Assets/HomeContent/css/responsive.css">
+
+
+    <!-- Color CSS -->
+    <link rel="stylesheet" href="~/Assets/HomeContent/css/color/color7.css">
+
+    <link rel="stylesheet" href="#" id="colors">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Coda+Caption:wght@800&family=RocknRoll+One&display=swap" rel="stylesheet">
+    
+
+</head>
+<body>
+    <!-- Header Area -->
+    <header id="header" class="header">
+        <!-- Header Inner -->
+        <div class="header-inner" style="height:120px">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-2 col-xs-2">
+                        <div class="logo">
+                            <a href="index.html"><img style="height:90px;width:200px" src="http://creativa.gov.eg/wp-content/uploads/2020/12/CREATIVA-LOGO2.png" alt="logo.png"></a>
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-sm-10">
+                        <div class="mobile-menu"></div>
+                        <nav class="navbar navbar-default">
+                            <div class="collapse navbar-collapse">
+                                <ul id="nav" class="nav navbar-nav">
+                                    <li class="current">
+                                        <a href="#slider">home</a>
+                                    </li>
+                                    <li><a href="#advanced-features">Organizations</a></li>
+                                    <li><a href="#clients">Events</a></li>
+                                    <li><a href="#team">Graduates</a></li>
+                                    @if (ViewBag.session == null || ViewBag.session == "")
+                                    {
+
+                                    }
+                                    else
+                                    {
+                                        <li><a asp-controller="userMVC" asp-action="GetUserProfile">Profile</a></li>
+                                        <li><a asp-controller="Freelance" asp-action="Add">Reserve Freelance</a></li>
+                                    }
+                                    <li><a href="#contact">Contact</a></li>
+
+
+
+
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--/ End Header Area -->
+    <!-- Slider Area -->
+    <section id="slider">
+        <div class="single-slider" style="background-image: url('~/Assets/HomeContent/img/fun-bg.jpg')">
+            <div id="particles-js"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="text">
+                            <h1 class="cd-headline clip is-full-width">
+                                Creativa
+                                <span class="cd-words-wrapper">
+                                    <b class="is-visible">ITI</b>
+                                    <b>NTI</b>
+                                    <b>ITIDA</b>
+                                </span>
+                            </h1>
+                            <p>
+                                MCIT is working to establish Creativa Innovation Hubs, through which many programs are implemented through ITI,
+                                NTI and the Technology Innovation and Entrepreneurship Center (TIEC)
+                            </p>
+                            <div class="button-head">
+                                <div class="button">
+                                    <span></span>
+                                    @if (ViewBag.session == null || ViewBag.session == "")
+                                    {
+                                        <a asp-action="login" class="btn">Sign In</a>
+                                    }
+                                    else
+                                    {
+                                        <a asp-action="logout" class="btn">Log out</a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/ End Slider Area -->
+    <!-- features Area -->
+    <center>
+        <section id="advanced-features" style="margin-top:50px">
+            <div class="row">
+                <div class="col-md-6 offset-md-0" data-aos="fade-right">
+                    <a href="http://creativa.gov.eg/">
+                        <img style="width:70%;height:25%;" src="http://creativa.gov.eg/wp-content/uploads/2020/12/CREATIVA-LOGO2.png" alt="">
+                    </a>
+                    <br /><br /><br />
+                    <div data-aos="fade-left">
+                        <p style="font-family: 'RocknRoll One', sans-serif; " data-aos-delay="200">In alignment with Egypt Vision 2030, and Egypt’s digital transformation strategy, the Ministry of Communications and Information Technology (MCIT) has embarked on building Digital Egypt. Digital Egypt is an all-encompassing vision and plan, laying the foundations for the transformation of Egypt into a digital society.
+                    </div>
+                </div>
+                <div class="col-md-6 offset-md-0" data-aos="fade-left">
+                    <div style="background-color:white; padding-bottom:20px;">
+                        <a href="http://www.iti.gov.eg/iti/home">
+                            <img style="width:70%;height:25%;" src="https://socialinnovationegypt.com/pluginfile.php/1/theme_alpha/logosimage1/1606412245/0.jpg" alt="">
+                        </a>
+                        <div data-aos="fade-right">
+                            <p style="font-family: 'RocknRoll One', sans-serif; " data-aos-delay="200">Excellence in developing human cadres and providing specialized consultation services for individuals and entities in the information and communication technology domain. Support designing and developing models and prototypes to meet the socioeconomic technological development requirements. Continuously focusing on staff development and commitment to uphold responsibility toward applying the social values.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br /><br />
+            <div class="row">
+                <div class="col-md-6 offset-md-0" data-aos="fade-right">
+                    <div style="background-color:white; padding-bottom:20px;">
+                        <a href="https://www.nti.sci.eg/">
+                            <img style="width:50%;height:25%;" src="http://creativa.gov.eg/wp-content/uploads/2020/12/Powerd-NTI.png" alt="">
+                        </a>
+                        <br /><br /><br />
+                        <div data-aos="fade-left">
+                            <p style="font-family: 'RocknRoll One', sans-serif; " data-aos-delay="200">The National Telecommunication Institute (NTI), being a reputed scientific, educational and research institution founded in 1983 with the mandate of becoming the center of excellence for telecommunication education, training, research and development and consultancy services, is devoting all of its resources to the build up the pillars of development and is well prepared and well equipped more than ever to play a major role in the fast paced development of the ICT industry.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 offset-md-0" data-aos="fade-left">
+                    <a href="https://tiec.gov.eg/English/Pages/default.aspx">
+                        <img style="width:90%;height:40%;" src="https://tiec.gov.eg/Style%20Library/LINKDev/Img/TIEClogoHP.png" alt="">
+                    </a>
+                    <br /><br /><br />
+                    <div data-aos="fade-right">
+                        <p style="font-family: 'RocknRoll One', sans-serif; " data-aos-delay="200">ITIDA plays a pivotal function in developing the local IT industry. Our custom-tailored programs; policy advice and implementation; trade promotion in regional and global markets; and being a strategic advisor to domestic SMEs and multinational corporations contribute to a cross-country economic growth.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </center>
+
+    <br />
+    <!-- Clients Area -->
+    <section>
+        <div id="clients" class="clients section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="owl-carousel clients-slider">
+                            <!-- Single Clients -->
+
+                            @foreach (var item in Model)
+                            {
+                                <div class="single-clients">
+
+                                    <!--<div class="card" style="width: 18rem;">
+                                        <img src="~/Assets/HomeContent/img/@item.Img" class="card-img-top" alt="#">
+                                        <div class="card-body">
+                                            <h5 class="card-title">@item.date</h5>
+                                            <p class="card-text">@item.desc</p>-->
+                                    @*<a asp-controller="" asp-action="" asp-route-id="@item.branch_id" class="btn btn-info">See Branch</a>*@
+                                    <!--</div>
+                                    </div>-->
+                                    <!-- Button trigger modal -->
+                                    <span onclick="$('#modal_body').html('@item.desc');">
+                                        <img data-toggle="modal" data-target="#exampleModalCenter" src="~/Assets/HomeContent/img/@item.Img" alt="event">
+                                    </span>
+                                    <span><a asp-action="subscribe/'@item.id'">subscribe</a></span>
+                                    @*<img src="~/Assets/HomeContent/img/@item.Img" alt="#">
+                                        <p>@item.desc</p>*@
+                                </div>
+
+                            }
+
+                            <!-- Single Client -->
+                            <!--<div class="single-clients">
+                                <img src="~/Assets/HomeContent/img/blog2.jpg" alt="#">
+                            </div>-->
+                            <!--/ End Single Client -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/ End Clients Area -->
+    <br />
+    <!-- Fun Facts Area -->
+    <section id="fun-facts" class="fun-facts section" data-stellar-background-ratio="0.5">
+        <div class="bf-color">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn" data-wow-duration="0.8s" data-wow-delay="0.4s">
+                        <!-- Single Fun -->
+                        <div class="single-fun">
+                            <i class="fa fa-th-list" aria-hidden="true"></i>
+                            <span class="counter">3468</span>
+                            <p>Graduates</p>
+                        </div>
+                        <!--/ End Single Fun -->
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn" data-wow-duration="0.8s" data-wow-delay="0.6s">
+                        <!-- Single Fun -->
+                        <div class="single-fun">
+                            <i class="fa fa-smile-o" aria-hidden="true"></i>
+                            <span class="counter">468</span>
+                            <p>Tracks and Programs</p>
+                        </div>
+                        <!--/ End Single Fun -->
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn" data-wow-duration="0.8s" data-wow-delay="0.8s">
+                        <!-- Single Fun -->
+                        <div class="single-fun">
+                            <i class="fa fa-briefcase" aria-hidden="true"></i>
+                            <span class="counter">4368</span>
+                            <p>Hourse Work</p>
+                        </div>
+                        <!--/ End Single Fun -->
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn" data-wow-duration="0.8s" data-wow-delay="1s">
+                        <!-- Single Fun -->
+                        <div class="single-fun">
+                            <i class="fa fa-coffee" aria-hidden="true"></i>
+                            <span class="counter">3468</span>
+                            <p>Cups of coffes</p>
+                        </div>
+                        <!--/ End Single Fun -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/ End Fun Facts Area -->
+    <!-- Team -->
+    <section style="padding-bottom:10px" id="team" class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="section-title">
+                        <h2>our Graduates</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-12 wow fadeInRight" data-wow-duration="0.8s" data-wow-delay="0.7s">
+                    <!-- Single Team -->
+                    <div class="single-team">
+                        <div class="team-head">
+                            <img src="~/Assets/HomeContent/img/testi-3.jpg" alt="">
+                            <div class="team-hover">
+                                <ul class="social">
+                                    <li><a asp-controller="Graduates" asp-action="Graduate"><i class="fa fa-trophy"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="t-name">
+                            <h4>naimur rahman<span>EnterPreuner</span></h4>
+                        </div>
+                    </div>
+                    <!--/ End Single Team -->
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12 wow fadeInRight" data-wow-duration="0.8s" data-wow-delay="0.6s">
+                    <!-- Single Team -->
+                    <div class="single-team">
+                        <div class="team-head">
+                            <img src="~/Assets/HomeContent/img/testi-2.jpg" alt="">
+                            <div class="team-hover">
+                                <ul class="social">
+                                    <li><a asp-controller="Graduates" asp-action="Graduate"><i class="fa fa-trophy"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="t-name">
+                            <h4>rakib hassan<span>Freelancer</span></h4>
+                        </div>
+                    </div>
+                    <!--/ End Single Team -->
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12 wow fadeInRight" data-wow-duration="0.8s" data-wow-delay="0.5s">
+                    <!-- Single Team -->
+                    <div class="single-team">
+                        <div class="team-head">
+                            <img src="~/Assets/HomeContent/img/testi-1.jpg" alt="">
+                            <div class="team-hover">
+                                <ul class="social">
+                                    <li><a asp-controller="Graduates" asp-action="Graduate"><i class="fa fa-trophy"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="t-name">
+                            <h4>afsana mimi<span>Marketer</span></h4>
+                        </div>
+                    </div>
+                    <!--/ End Single Team -->
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12 wow fadeInRight" data-wow-duration="0.8s" data-wow-delay="0.4s">
+                    <!-- Single Team -->
+                    <div class="single-team">
+                        <div class="team-head">
+                            <img src="~/Assets/HomeContent/img/team3.png" alt="">
+                            <div class="team-hover">
+                                <ul class="social">
+                                    <li><a asp-controller="Graduates" asp-action="Graduate"><i class="fa fa-trophy"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="t-name">
+                            <h4>saiful abir<span>Developer</span></h4>
+                        </div>
+                    </div>
+                    <!--/ End Single Team -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/ End Team -->
+    <!-- Blog -->
+    <section style="padding-top:10px" id="blog" class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="button-head">
+                        <div class="button">
+                            <span></span>
+                            <a asp-controller="Graduates" asp-action="Graduate" class="btn">See All Graduates!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br />
+
+
+    <!--/ contact Area -->
+    <section id="contact" class="contact section" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row">
+                <div class="contact-head">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="contact-left">
+                            <h3>Contact <span>us now</span></h3>
+                            <p class="p1">Get in touch to discuss your employee wellbeing needs today. Please give us a call, drop us an email or fill out the contact form and we’ll get back to you.</p>
+                            <p>Your email address will not be published. Required fields are marked *</p>
+
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <div class="contact-right">
+                            <div class="row">
+                                <form class="form" action="#">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input name="name" type="text" placeholder="full name">
+                                        </div>
+                                        <div class="form-group">
+                                            <input name="email" type="email" placeholder="enter your email">
+                                        </div>
+                                        <div class="button">
+                                            <button type="submit" class="btn primary">Submit<i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <textarea name="message" placeholder="type your message"></textarea>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!--/ End Contact Form -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/ End contact Area -->
+    <!-- Footer Area -->
+    <footer id="footer" class="footer section">
+        <!-- Footer Top -->
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+                        <div class="single-footer">
+                            <div class="logo">
+                                <img style="height:150px;width:270px" src="http://creativa.gov.eg/wp-content/uploads/2020/12/CREATIVA-LOGO2.png" alt="#">
+                            </div>
+                            <p style="font-size:small">Learning and Innovation Hubs</p>
+                            <div class="contact">
+                                <p style="font-size:small" class="location"><i class="fa fa-map-marker" aria-hidden="true"></i>Mirpur, dhaka-bangledesh</p>
+                                <p style="font-size:small" class="mail-add"><i class="fa fa-envelope-o" aria-hidden="true"></i>info@clippinglamp.com</p>
+                                <p style="font-size:small" class="call"><i class="fa fa-phone-square" aria-hidden="true"></i>call:900-200-2315</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+                        <div class="single-footer">
+                            <h2><i class="fa fa-sliders" aria-hidden="true"></i>setra site map</h2>
+                            <span><i class="fa fa-caret-right" aria-hidden="true"></i>home</span>
+                            <span><i class="fa fa-caret-right" aria-hidden="true"></i>our shop</span>
+                            <span><i class="fa fa-caret-right" aria-hidden="true"></i>about us</span>
+                            <span><i class="fa fa-caret-right" aria-hidden="true"></i>blog</span>
+                            <span><i class="fa fa-caret-right" aria-hidden="true"></i>your account</span>
+                            <span><i class="fa fa-caret-right" aria-hidden="true"></i>our guarantee</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+                        <div class="single-footer">
+                            <h2><i class="fa fa-cogs" aria-hidden="true"></i>our company</h2>
+                            <span><i class="fa fa-caret-right" aria-hidden="true"></i>shipping policy</span>
+                            <span><i class="fa fa-caret-right" aria-hidden="true"></i>international shipping</span>
+                            <span><i class="fa fa-caret-right" aria-hidden="true"></i>affiliates</span>
+                            <span><i class="fa fa-caret-right" aria-hidden="true"></i>our sponsors</span>
+                            <span><i class="fa fa-caret-right" aria-hidden="true"></i>team & conditions</span>
+                            <span><i class="fa fa-caret-right" aria-hidden="true"></i>cash on delivery</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+                        <div class="single-footer">
+                            <h2>newsletter subscription</h2>
+                            <p style="font-size:small">subscribe to our newsletter to get allour news in your inbox</p>
+                            <div class="mail">
+                                <input type="email" placeholder="Enter your email">
+                                <button class="button"><a href="#">subscribe us</a></button>
+                                <i class="fa fa-lock icon"></i>
+                                <p style="font-size:small">Your email address is 100% safe to us</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/ End Footer Top -->
+        <!-- Copyright -->
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="copyright-content">
+                            <p style="font-size:small">Copyright 2018 | Distributed by <a href="https://themewagon.com/" target="_blank">ThemeWagon</a></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <ul class="social">
+                            <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                            <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                            <li><a href=""><i class="fa fa-instagram"></i></a></li>
+                            <li><a href=""><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href=""><i class="fa fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/ End Copyright -->
+    </footer>
+    <!--/ End Footer Area -->
+    <!-- Modal -->
+    <style>
+        .modal-dialog {
+            height: 80% !important;
+            padding-top: 10%;
+        }
+
+        .modal-content {
+            height: 100% !important;
+            overflow: visible;
+        }
+
+        .modal-body {
+            height: 80%;
+            overflow: auto;
+        }
+    </style>
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modal_body">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Of Modal -->
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="~/Assets/HomeContent/js/jquery.min.js"></script>
+    <script src="~/Assets/HomeContent/js/bootstrap.min.js"></script>
+    <script src="~/Assets/HomeContent/js/colors.js"></script>
+    <script src="~/Assets/HomeContent/js/jquery.nav.js"></script>
+    <script src="~/Assets/HomeContent/js/jquery.scrollUp.min.js"></script>
+    <script src="~/Assets/HomeContent/js/jquery.slicknav.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <script src="~/Assets/HomeContent/js/owl.carousel.min.js"></script>
+    <script src="~/Assets/HomeContent/js/isotope.pkgd.min.js"></script>
+    <script src="~/Assets/HomeContent/js/wow.min.js"></script>
+    <script src="~/Assets/HomeContent/js/jquery.stellar.min.js"></script>
+    <script src="~/Assets/HomeContent/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/Assets/HomeContent/js/animate-text.js"></script>
+    <script src="~/Assets/HomeContent/js/particles.min.js"></script>
+    <script src="~/Assets/HomeContent/js/particle-code.js"></script>
+    <script src="~/Assets/HomeContent/js/jquery.counterup.min.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyC0RqLa90WDfoJedoE3Z_Gy7a7o8PCL2jw"></script>
+    <script type="text/javascript" src="~/Assets/HomeContent/js/gmaps.min.js"></script>
+    <script src="~/Assets/HomeContent/js/main.js"></script>
+
+
+    <script>
+        AOS.init();
+    </script>
+
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
+    @*@RenderSection("scripts", required: false)*@
+</body>
+</html>
